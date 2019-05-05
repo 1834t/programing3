@@ -48,7 +48,7 @@ class Mul2 {
                 var y = cord[1];
 
                 var neweatdino = new Eatdino(x, y);
-               eatdinoArr.push(neweatdino);
+                eatdinoArr.push(neweatdino);
 
                 matrix[y][x] = 1;
                 this.multiply = 0;

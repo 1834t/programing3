@@ -1,5 +1,5 @@
 
-class Grass {
+class Mul1 {
     constructor(x, y) {
         this.x = x;
         this.y = y;
@@ -40,20 +40,21 @@ class Grass {
 
     mul() {
         this.multiply++;
-        if (this.multiply == 15) {
+        if (this.multiply == 1) {
             var fundCords = this.getDirections(0);
             var cord = random(fundCords);
             if (cord) {
                 var x = cord[0];
                 var y = cord[1];
 
-                var newgrass = new Grass(x, y);
-                grassArr.push(newgrass);
+                var neweat = new Eatgrass(x, y);
+                eatArr.push(neweat);
 
                 matrix[y][x] = 1;
                 this.multiply = 0;
             }
+          
         }
     }
-}
 
+}
