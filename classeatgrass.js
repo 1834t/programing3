@@ -151,7 +151,7 @@ class Eatgrass extends LivingCreature {
             var x = cord[0];
             var y = cord[1];
 
-            matrix[y][x] = 2;
+            matrix[y][x] = 1;
             matrix[this.y][this.x] = 0;
 
             this.x = x;
