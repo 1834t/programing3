@@ -120,11 +120,13 @@
 //     }
 
 // }
+let Living = require("./Living.js")
 
-class Eatgrass extends LivingCreature {
-    constructor(x, y){
-        super(x, y);
-        this.energy = 3; 
+
+module.exports = class Eatgrass extends Living {
+    constructor(x, y) {
+      super(x,y);
+        this.energy = 3;
     }
     getDirections() {
        this.directions = [

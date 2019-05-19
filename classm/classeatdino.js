@@ -1,12 +1,11 @@
-class Eatall {
-    constructor(x, y) {
-        this.x = x;
-        this.y = y;
-        this.multiply = 0;
-        this.energy = 100;
-        this.directions = [];
-    }
+let Living = require("./Living.js")
 
+module.exports = class Eatdino extends Living{
+    constructor(x, y) {
+        super(x,y);
+        this.multiply = 0;
+        this.energy = 15;
+    }
     newDirections() {
         this.directions = [
             [this.x - 1, this.y - 1],
@@ -45,7 +44,7 @@ class Eatall {
             var x = cord[0];
             var y = cord[1];
 
-            matrix[y][x] = 4;
+            matrix[y][x] = 3;
             matrix[this.y][this.x] = 0;
 
             this.x = x;
@@ -55,44 +54,30 @@ class Eatall {
 
 
     eat() {
-        var fundCords1 = this.getDirections(2);
-        var fundCords2 = this.getDirections(1);
-        var fundCords = this.getDirections(3);
-        fundCords=fundCords.concat(fundCords2,fundCords1)
+        var fundCords = this.getDirections(2);
         var cord = random(fundCords);
 
         if (cord) {
             var x = cord[0];
             var y = cord[1];
 
-            matrix[y][x] = 4;
+            matrix[y][x] = 3;
             matrix[this.y][this.x] = 0;
-            
+
             this.x = x;
             this.y = y;
 
             this.multiply++;
 
             this.energy++;
-            for (var i in grassArr) {
-                if (x == grassArr[i].x && y == grassArr[i].y) {
-                    grassArr.splice(i, 1);
-                }
-            }
-                  for (var i in eatArr) {
+
+            for (var i in eatArr) {
                 if (x == eatArr[i].x && y == eatArr[i].y) {
                     eatArr.splice(i, 1);
                 }
             }
-            
-            for (var i in eatdinoArr) {
-                if (x == eatdinoArr[i].x && y == eatdinoArr[i].y) {
-                    eatdinoArr.splice(i, 1);
-                }
-            }
 
-
-            if (this.multiply == 15) {
+            if (this.multiply == 10) {
                 this.mul()
                 this.multiply = 0;
             }
@@ -116,19 +101,19 @@ class Eatall {
         if (cord) {
             var x = cord[0];
             var y = cord[1];
-            var neweatallArr = new Eatall(x, y)
-            eatallArr.push(neweatallArr);
+            var neweatdinoArr = new Eatdino(x, y)
+            eatdinoArr.push(neweatdinoArr);
 
-            matrix[y][x] = 4;
+            matrix[y][x] = 3;
         }
     }
 
     die() {
         matrix[this.y][this.x] = 0;
 
-        for (var i in eatallArr) {
-            if (this.x == eatallArr[i].x && this.y == eatallArr[i].y) {
-                eatallArr.splice(i, 1);
+        for (var i in eatdinoArr) {
+            if (this.x == eatdinoArr[i].x && this.y == eatdinoArr[i].y) {
+                eatdinoArr.splice(i, 1);
             }
         }
     }

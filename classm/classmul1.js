@@ -1,10 +1,9 @@
+let Living = require("./Living.js")
 
-class Mul1 {
+module.exports = class mul1 extends Living {
     constructor(x, y) {
-        this.x = x;
-        this.y = y;
+    super(x,y);
         this.multiply = 0;
-        this.directions = [];
 
     }
 

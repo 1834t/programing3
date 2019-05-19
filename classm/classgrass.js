@@ -1,12 +1,13 @@
-class Mulgrass {
+let  Living = require("./Living.js")
+
+
+module.exports = class Grass extends Living {
     constructor(x, y) {
-        this.x = x;
-        this.y = y;
+    super(x,y)
         this.multiply = 0;
-        this.directions = [];
 
     }
-
+   
     newDirections() {
         this.directions = [
             [this.x - 1, this.y - 1],
@@ -19,8 +20,6 @@ class Mulgrass {
             [this.x + 1, this.y + 1]
         ];
     }
-
-
     getDirections(t) {
         this.newDirections();
         var found = [];
@@ -35,36 +34,21 @@ class Mulgrass {
         }
         return found;
     }
-
-
     mul() {
-
         this.multiply++;
-        if (this.multiply == 1) {
+        if (this.multiply == 15) {
+           
             var fundCords = this.getDirections(0);
             var cord = random(fundCords);
             if (cord) {
                 var x = cord[0];
                 var y = cord[1];
-
-                var newgrass = new Grass(x, y);
-                grassArr.push(newgrass);
+             
+                var norXot = new Grass(x, y);
+                xotArr.push(norXot);
 
                 matrix[y][x] = 1;
                 this.multiply = 0;
-            }
-            if (this.energy <= 0) {
-                this.die();
-            }
-        }
-    }
-
-    die() {
-        matrix[this.y][this.x] = 0;
-
-        for (var i in mulgrassArr) {
-            if (this.x == mulgrasslArr[i].x && this.y == mulgrassArr[i].y) {
-                mulgrassArr.splice(i, 1);
             }
         }
     }
