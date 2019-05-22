@@ -1,6 +1,6 @@
 let Living = require("./Living.js")
-
-module.exports = class mul2 extends Living {
+let  random = require("./random")
+module.exports = class Mul2 extends Living {
     constructor(x, y) {
     super(x,y);
         this.multiply = 0;

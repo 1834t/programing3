@@ -1,5 +1,5 @@
 let  Living = require("./Living.js")
-
+let  random = require("./random")
 
 module.exports = class Grass extends Living {
     constructor(x, y) {
@@ -44,8 +44,8 @@ module.exports = class Grass extends Living {
                 var x = cord[0];
                 var y = cord[1];
              
-                var norXot = new Grass(x, y);
-                xotArr.push(norXot);
+                var newgrass = new Grass(x, y);
+                grassArr.push(newgrass);
 
                 matrix[y][x] = 1;
                 this.multiply = 0;

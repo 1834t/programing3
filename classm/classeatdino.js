@@ -1,5 +1,5 @@
 let Living = require("./Living.js")
-
+let  random = require("./random")
 module.exports = class Eatdino extends Living{
     constructor(x, y) {
         super(x,y);

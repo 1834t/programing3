@@ -1,6 +1,6 @@
 let Living = require("./Living.js")
-
-module.exports = class mulgrass extends Living {
+let  random = require("./random")
+module.exports = class Mulgrass extends Living {
     constructor(x, y) {
     super(x,y);
         this.multiply = 0;
@@ -62,9 +62,9 @@ module.exports = class mulgrass extends Living {
     die() {
         matrix[this.y][this.x] = 0;
 
-        for (var i in mulgrassArr) {
-            if (this.x == mulgrasslArr[i].x && this.y == mulgrassArr[i].y) {
-                mulgrassArr.splice(i, 1);
+        for (var i in MulgrassArr) {
+            if (this.x == MulgrasslArr[i].x && this.y == MulgrassArr[i].y) {
+                MulgrassArr.splice(i, 1);
             }
         }
     }
